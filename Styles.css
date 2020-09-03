@@ -19,6 +19,7 @@ body {
     align-items: center;
     background-color: #393e46;
     font-family: 'Long Cang', cursive;
+    font-size: 50px;
 }
 
 .board {
@@ -48,4 +49,19 @@ body {
 
 h3 {
     font-family: 'Long Cang', cursive;
+    font-size: 50px;
+}
+
+.game {
+    display: flex;
+    flex-direction: column;
+}
+
+button {
+    display: flex;
+    justify-content: center;
+    border-radius: 10px;
+    background-color: #eeeeee;
+    margin: 20px;
+    padding: 10px 5px;
 }
