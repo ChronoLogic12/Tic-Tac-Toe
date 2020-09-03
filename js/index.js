@@ -40,6 +40,13 @@ const makeMove = () => {
     })
 }
 
+//check if the game is a draw
+const checkDraw = () => {
+    if (tile1 && tile2 && tile3 && tile4 && tile5 && tile6 && tile7 && tile8 && tile9) {
+        gameOver("draw");
+    }
+}
+
 //check for winning board condition
 const checkWin = () => {    
 //inner HTML for each tile
@@ -77,9 +84,7 @@ let tile9 = document.getElementById('tile-9').children[0].innerHTML;
    if (tile3 !== "" && tile3 === tile5 && tile5 === tile7) {
        gameOver(tile3);
    };
-   if (tile1 && tile2 && tile3 && tile4 && tile5 && tile6 && tile7 && tile8 && tile9) {
-       gameOver("draw");
-   }
+   checkDraw();
 };
 
 //declare winner and set baord to inactive 
