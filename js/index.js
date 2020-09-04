@@ -40,51 +40,38 @@ const makeMove = () => {
     })
 }
 
-//check if the game is a draw
-const checkDraw = () => {
-    if (tile1 && tile2 && tile3 && tile4 && tile5 && tile6 && tile7 && tile8 && tile9) {
-        gameOver("draw");
-    }
-}
-
 //check for winning board condition
 const checkWin = () => {    
-//inner HTML for each tile
-let tile1 = document.getElementById('tile-1').children[0].innerHTML;
-let tile2 = document.getElementById('tile-2').children[0].innerHTML;
-let tile3 = document.getElementById('tile-3').children[0].innerHTML;
-let tile4 = document.getElementById('tile-4').children[0].innerHTML;
-let tile5 = document.getElementById('tile-5').children[0].innerHTML;
-let tile6 = document.getElementById('tile-6').children[0].innerHTML;
-let tile7 = document.getElementById('tile-7').children[0].innerHTML;
-let tile8 = document.getElementById('tile-8').children[0].innerHTML;
-let tile9 = document.getElementById('tile-9').children[0].innerHTML;
-//check each possible win state 
-   if (tile1 !== "" && tile1 === tile2 && tile2 === tile3) {
+    //inner HTML for each tile
+    let tile1 = document.getElementById('tile-1').children[0].innerHTML;
+    let tile2 = document.getElementById('tile-2').children[0].innerHTML;
+    let tile3 = document.getElementById('tile-3').children[0].innerHTML;
+    let tile4 = document.getElementById('tile-4').children[0].innerHTML;
+    let tile5 = document.getElementById('tile-5').children[0].innerHTML;
+    let tile6 = document.getElementById('tile-6').children[0].innerHTML;
+    let tile7 = document.getElementById('tile-7').children[0].innerHTML;
+    let tile8 = document.getElementById('tile-8').children[0].innerHTML;
+    let tile9 = document.getElementById('tile-9').children[0].innerHTML;
+    //check each possible win state 
+    if (tile1 !== "" && tile1 === tile2 && tile2 === tile3) {
        gameOver(tile1);
-   };
-   if (tile4 !== "" && tile4 === tile5 && tile5 === tile6) {
+    } else if (tile4 !== "" && tile4 === tile5 && tile5 === tile6) {
        gameOver(tile4);
-   };
-   if (tile7 !== "" && tile7 === tile8 && tile8 === tile9) {
+    } else if (tile7 !== "" && tile7 === tile8 && tile8 === tile9) {
        gameOver(tile7);
-   };
-   if (tile1 !== "" && tile1 === tile4 && tile4 === tile7) {
+    } else if (tile1 !== "" && tile1 === tile4 && tile4 === tile7) {
        gameOver(tile1);
-   };
-   if (tile2 !== "" && tile2 === tile5 && tile5 === tile8) {
+    } else if (tile2 !== "" && tile2 === tile5 && tile5 === tile8) {
        gameOver(tile2);
-   };
-   if (tile3 !== "" && tile3 === tile6 && tile6 === tile9) {
+    } else if (tile3 !== "" && tile3 === tile6 && tile6 === tile9) {
        gameOver(tile3);
-   };
-   if (tile1 !== "" && tile1 === tile5 && tile5 === tile9) {
+    } else if (tile1 !== "" && tile1 === tile5 && tile5 === tile9) {
        gameOver(tile1);
-   };
-   if (tile3 !== "" && tile3 === tile5 && tile5 === tile7) {
+    } else if (tile3 !== "" && tile3 === tile5 && tile5 === tile7) {
        gameOver(tile3);
-   };
-   checkDraw();
+    } else if (tile1 && tile2 && tile3 && tile4 && tile5 && tile6 && tile7 && tile8 && tile9) {
+    gameOver("draw");
+    };
 };
 
 //declare winner and set baord to inactive 
