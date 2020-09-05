@@ -11,7 +11,9 @@ let oWins = 0;
 //restart
 const restart = () => {
     tiles.forEach(tile => {
-        tile.children[0].innerHTML = "";
+        tile.children[0].classList.remove('letter-visable');
+        setTimeout(() => {tile.children[0].innerHTML = ""}, 200);
+
     })
     currentTurn = "X";
     button.children[0].innerHTML = "Restart?";
@@ -45,6 +47,7 @@ const makeMove = () => {
         tile.addEventListener("click", () => {
             if (!tile.children[0].innerHTML) {
             tile.children[0].innerHTML = currentTurn;
+            tile.children[0].classList.add('letter-visable');
             updateTurn();
             checkWin(); 
             }

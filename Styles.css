@@ -3,9 +3,15 @@
     padding: 0;
 }
 
+html {
+    overflow: hidden;
+}
+
 h1 {
     margin: 30px;
     color: #00adb5;
+    justify-self: center;
+    align-self: center; 
 }
 
 h2 {
@@ -26,7 +32,6 @@ body {
     display: grid;
     grid-template-rows: 1fr 1fr 1fr;
     grid-template-columns: 1fr 1fr 1fr;
-    background-color: #eeeeee;
     border-radius: 10px;
     overflow: hidden;
     border: 2px solid #00adb5;
@@ -45,6 +50,8 @@ body {
     display: grid;
     font-family: 'Long Cang', cursive;
     font-size: 100px;
+    transition: background-color 0.4s ease;
+    background-color: #e0dfdf;
 }
 
 h3 {
@@ -75,6 +82,7 @@ button {
     padding: 15px;
     width: 220px;
     outline: 0;
+    transition: background-color 0.2s;
 }
 
 .reset {
@@ -105,3 +113,28 @@ button {
 .X-wins, .O-wins {
     margin: 0px 30px;
 }
+
+ /*animations*/
+
+ .tile h2 {
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.tile .letter-visable {
+    opacity: 1 ;
+}
+
+.tile:hover {
+    background-color: #ffffff;
+}
+
+.tile .darken {
+    background-color: #c2c2c2;
+}
+
+.button:hover {
+    background-color: #ffffff;
+}
+
+
