@@ -1,9 +1,11 @@
 //Variable declaration
 const tiles = document.querySelectorAll('.tile');
 let currentTurn = "X"; 
-let button = document.querySelector('.start-button');
+let button = document.querySelector('.button');
+let resetButton = document.querySelector('.reset');
 const board = document.querySelector('.board');
-
+let xWins = 0;
+let oWins = 0;
 //functions
 
 //restart
@@ -15,6 +17,16 @@ const restart = () => {
     button.children[0].innerHTML = "Restart?";
     board.classList.remove('board-inactive');
 }
+
+//reset score
+const reset = () => {
+    xWins = 0;
+    oWins = 0;
+    document.querySelector('.X-wins').innerHTML = xWins;
+    document.querySelector('.O-wins').innerHTML = oWins;
+}
+
+resetButton.addEventListener('click', reset);
 
 button.addEventListener('click', restart);
 
@@ -74,6 +86,17 @@ const checkWin = () => {
     };
 };
 
+//update score
+const updateScore = winningSide => {
+    if (winningSide === "X") {
+        xWins++;
+        document.querySelector('.X-wins').innerHTML = xWins;
+    } else if (winningSide === "O") {
+        oWins++;
+        document.querySelector('.O-wins').innerHTML = oWins;
+    }
+}
+
 //declare winner and set baord to inactive 
 const gameOver = winningSide => {
  if (winningSide === "draw") {
@@ -82,6 +105,7 @@ const gameOver = winningSide => {
      button.children[0].innerHTML = `${winningSide} WINS! Play again?`;
     }
     board.classList.add('board-inactive');
+    updateScore(winningSide);
 };
 
 

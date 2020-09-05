@@ -4,7 +4,7 @@
 }
 
 h1 {
-    margin: 10px;
+    margin: 30px;
     color: #00adb5;
 }
 
@@ -50,6 +50,7 @@ body {
 h3 {
     font-family: 'Long Cang', cursive;
     font-size: 50px;
+    color: #00adb5;
 }
 
 .game {
@@ -57,11 +58,48 @@ h3 {
     flex-direction: column;
 }
 
+.button-container {
+    display: flex;
+    flex-direction: row;
+}
+
 button {
     display: flex;
     justify-content: center;
+    align-items: center;
     border-radius: 10px;
     background-color: #eeeeee;
     margin: 20px;
+    margin-left: 150px;
     padding: 10px 5px;
+    width: 170px;
+}
+
+.reset {
+    margin-left: 200px; 
+    height: 120px;
+}
+
+.score-board {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 50px;
+    font-family: 'Long Cang', cursive;
+    font-size: 80px;
+    color: #00adb5;
+}
+
+.game-area { 
+    display: flex;
+    flex-direction: row;
+}
+
+.wins-container {
+    display: inline-flex;
+}
+
+.X-wins, .O-wins {
+    margin: 0px 30px;
 }
