@@ -12,12 +12,13 @@ let oWins = 0;
 const restart = () => {
     tiles.forEach(tile => {
         tile.children[0].classList.remove('letter-visable');
+        tile.classList.remove('highlight', 'darken');
         setTimeout(() => {tile.children[0].innerHTML = ""}, 200);
-
     })
     currentTurn = "X";
     button.children[0].innerHTML = "Restart?";
     board.classList.remove('board-inactive');
+
 }
 
 //reset score
@@ -53,7 +54,11 @@ const makeMove = () => {
             }
         })
     })
-}
+};
+
+const toggleStyling = (targets, styling) => {
+    targets.forEach(target => target.classList.toggle(styling));
+};
 
 //check for winning board condition
 const checkWin = () => {    
@@ -70,22 +75,39 @@ const checkWin = () => {
     //check each possible win state 
     if (tile1 !== "" && tile1 === tile2 && tile2 === tile3) {
        gameOver(tile1);
+       toggleStyling([tiles[0], tiles[1], tiles[2]], 'highlight');
+       toggleStyling([tiles[3], tiles[4], tiles[5], tiles[6], tiles[7], tiles[8]], 'darken');
     } else if (tile4 !== "" && tile4 === tile5 && tile5 === tile6) {
        gameOver(tile4);
+       toggleStyling([tiles[3], tiles[4], tiles[5]], 'highlight');
+       toggleStyling([tiles[0], tiles[1], tiles[2], tiles[6], tiles[7], tiles[8]], 'darken');
     } else if (tile7 !== "" && tile7 === tile8 && tile8 === tile9) {
        gameOver(tile7);
+       toggleStyling([tiles[6], tiles[7], tiles[8]], 'highlight');
+       toggleStyling([tiles[0], tiles[1], tiles[2], tiles[3], tiles[4], tiles[5]], 'darken');
     } else if (tile1 !== "" && tile1 === tile4 && tile4 === tile7) {
        gameOver(tile1);
+       toggleStyling([tiles[0], tiles[3], tiles[6]], 'highlight');
+       toggleStyling([tiles[1], tiles[2], tiles[4], tiles[5], tiles[7], tiles[8]], 'darken');
     } else if (tile2 !== "" && tile2 === tile5 && tile5 === tile8) {
        gameOver(tile2);
+       toggleStyling([tiles[1], tiles[4], tiles[7]], 'highlight');
+       toggleStyling([tiles[0], tiles[2], tiles[3], tiles[5], tiles[6], tiles[8]], 'darken');
     } else if (tile3 !== "" && tile3 === tile6 && tile6 === tile9) {
        gameOver(tile3);
+       toggleStyling([tiles[2], tiles[5], tiles[8]], 'highlight');
+       toggleStyling([tiles[0], tiles[1], tiles[3], tiles[4], tiles[6], tiles[7]], 'darken');
     } else if (tile1 !== "" && tile1 === tile5 && tile5 === tile9) {
        gameOver(tile1);
+       toggleStyling([tiles[0], tiles[4], tiles[8]], 'highlight');
+       toggleStyling([tiles[1], tiles[2], tiles[3], tiles[5], tiles[6], tiles[7]], 'darken');
     } else if (tile3 !== "" && tile3 === tile5 && tile5 === tile7) {
        gameOver(tile3);
+       toggleStyling([tiles[2], tiles[4], tiles[6]], 'highlight');
+       toggleStyling([tiles[0], tiles[1], tiles[3], tiles[5], tiles[7], tiles[8]], 'darken');
     } else if (tile1 && tile2 && tile3 && tile4 && tile5 && tile6 && tile7 && tile8 && tile9) {
     gameOver("draw");
+    toggleStyling([tiles[0], tiles[1], tiles[2], tiles[3], tiles[4], tiles[5], tiles[6], tiles[7], tiles[8]], 'darken');
     };
 };
 
