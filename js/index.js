@@ -18,8 +18,9 @@ const restart = () => {
     currentTurn = "X";
     button.children[0].innerHTML = "Restart?";
     board.classList.remove('board-inactive');
-
 }
+
+button.addEventListener('click', restart);
 
 //reset score
 const reset = () => {
@@ -30,8 +31,6 @@ const reset = () => {
 }
 
 resetButton.addEventListener('click', reset);
-
-button.addEventListener('click', restart);
 
 //change whos turn it is 
 const updateTurn = () => {
@@ -107,7 +106,7 @@ const checkWin = () => {
        toggleStyling([tiles[0], tiles[1], tiles[3], tiles[5], tiles[7], tiles[8]], 'darken');
     } else if (tile1 && tile2 && tile3 && tile4 && tile5 && tile6 && tile7 && tile8 && tile9) {
     gameOver("draw");
-    toggleStyling([tiles[0], tiles[1], tiles[2], tiles[3], tiles[4], tiles[5], tiles[6], tiles[7], tiles[8]], 'darken');
+    toggleStyling(tiles, 'darken');
     };
 };
 
@@ -132,6 +131,5 @@ const gameOver = winningSide => {
     board.classList.add('board-inactive');
     updateScore(winningSide);
 };
-
 
 makeMove();

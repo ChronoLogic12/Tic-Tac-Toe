@@ -82,6 +82,7 @@ button {
     width: 220px;
     outline: 0;
     transition: background-color 0.2s;
+    cursor: pointer;
 }
 
 .reset {
