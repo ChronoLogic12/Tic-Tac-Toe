@@ -77,7 +77,6 @@ button {
     align-items: center;
     border-radius: 10px;
     background-color: #eeeeee;
-    margin: 20px;
     margin-left: 130px;
     padding: 15px;
     width: 220px;
@@ -86,7 +85,7 @@ button {
 }
 
 .reset {
-    margin-left: 135px; 
+    margin-left: 165px; 
     height: 120px;
 }
 
@@ -126,6 +125,10 @@ button {
 }
 
 .tile:hover {
+    background-color: #ffffff;
+}
+
+.tile .highlight {
     background-color: #ffffff;
 }
 
