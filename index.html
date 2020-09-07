@@ -20,8 +20,10 @@
                 <h4><u>Settings</u></h4>
                 <h4>Game Mode</h4>
                 <button class="AItoggle"><h4>Play VS AI</h4></button>
-                <h4>Your Team</h4>
-                <button><h4>X</h4></button>
+                <div class="player-team team-menu-active">
+                    <h4>Your Team</h4>
+                    <button class="player-team-toggle"><h4 class="current-team">X</h4></button>
+                </div>
             </div>           
         </div>
         <section class="game">
@@ -39,11 +41,11 @@
                 </div>
                 <div class="score-board">
                     <h2>Score</h2>
-                    <div class="wins-container">
+                    <div class="wins-container team-1">
                         <h2>X: </h2>
                         <h2 class="X-wins">0</h2>
                     </div>
-                    <div class="wins-container">
+                    <div class="wins-container team 2">
                         <h2>O: </h2>
                         <h2 class="O-wins">0</h2>
                     </div>

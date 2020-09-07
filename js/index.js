@@ -6,7 +6,12 @@ const settingsButton = document.querySelector('.burger');
 const settingsMenu = document.querySelector('.settings-menu');
 const AItoggle = document.querySelector('.AItoggle');
 const board = document.querySelector('.board');
+const playerTeam = document.querySelector('.player-team');
+const playerTeamButton = document.querySelector('.player-team-toggle');
+const team1 = document.querySelector('.team-1');
+const team2 = document.querySelector('.team-2');
 let currentTurn = "X";
+let playerTurn = "X";
 let xWins = 0;
 let oWins = 0;
 let AIactive = false;
@@ -14,10 +19,19 @@ let AITiles = [];
 
 //functions
 
+//switch the team the player is on VS AI
+const changeTeam = () => {
+    playerTurn = toggleTurn(playerTurn);
+    playerTeamButton.children[0].innerHTML = playerTurn;
+};
+
+playerTeamButton.addEventListener('click', changeTeam);
+
 //activate AI
 const activateAI = () => {
     AIactive ? AIactive = false : AIactive = true;
     AItoggle.classList.toggle('active');
+    playerTeam.classList.toggle('team-menu-active');
     reset();
     restart();
 }
@@ -29,6 +43,7 @@ const toggleSettingsAnimation = () => {
     settingsButton.classList.toggle('rotate');
     settingsMenu.classList.toggle('settings-menu-active');
 }
+
 settingsButton.addEventListener('click', toggleSettingsAnimation);
 
 
@@ -58,12 +73,12 @@ const reset = () => {
 
 resetButton.addEventListener('click', reset);
 
-//change whos turn it is 
-const updateTurn = () => {
-    if (currentTurn === "X") {
-        currentTurn = "O";
+//invert X and O 
+const toggleTurn = valueToChange => {
+    if (valueToChange === "X") {
+        return "O";
     } else {
-        currentTurn = "X";
+        return "X";
     }
 }
 
@@ -75,7 +90,7 @@ const makeMove = () => {
             tile.children[0].innerHTML = currentTurn;
             tile.children[0].classList.add('letter-visable');
             tile.classList.toggle('inactive');
-            updateTurn();
+            currentTurn = toggleTurn(currentTurn);
             let check = checkWin();
             if (AIactive && check) {
                 setTimeout(() => {makeAIMove()}, 200);
@@ -94,7 +109,7 @@ const makeAIMove = () => {
     AITiles[randomNumber].children[0].innerHTML = currentTurn;
     AITiles[randomNumber].children[0].classList.add('letter-visable');
     AITiles[randomNumber].classList.toggle('inactive');
-    updateTurn();
+    currentTurn = toggleTurn(currentTurn);
     checkWin();
 }
 

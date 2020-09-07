@@ -167,14 +167,29 @@ h3 {
     opacity: 0;
 }
 
+.team-menu-active {
+    pointer-events: none;
+    opacity: 0.4;
+    transition: opacity 0.5s;
+}
+
+.player-team {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.5s;
+}
+
 .settings-menu button {
     width: 100px;
     font-size: 30px;
     border-radius: 5px;    
     font-family: 'Architects Daughter', cursive;
+    cursor: pointer;
 }
 
-.active h4 {
+.active {
     background-color: #02ee49
 }
 
