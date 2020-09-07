@@ -1,21 +1,36 @@
-//Variable declaration
-const tiles = document.querySelectorAll('.tile');
-let currentTurn = "X"; 
-let button = document.querySelector('.button');
-let resetButton = document.querySelector('.reset');
-let settingsButton = document.querySelector('.burger');
+//Global variable declaration
+const tiles = document.querySelectorAll('.tile'); 
+const button = document.querySelector('.button');
+const resetButton = document.querySelector('.reset');
+const settingsButton = document.querySelector('.burger');
+const settingsMenu = document.querySelector('.settings-menu');
+const AItoggle = document.querySelector('.AItoggle');
 const board = document.querySelector('.board');
+let currentTurn = "X";
 let xWins = 0;
 let oWins = 0;
-let AIactive = true;
+let AIactive = false;
 let AITiles = [];
+
 //functions
+
+//activate AI
+const activateAI = () => {
+    AIactive ? AIactive = false : AIactive = true;
+    AItoggle.classList.toggle('active');
+    reset();
+    restart();
+}
+
+AItoggle.addEventListener('click', activateAI);
 
 //settings menu 
 const toggleSettingsAnimation = () => {
     settingsButton.classList.toggle('rotate');
+    settingsMenu.classList.toggle('settings-menu-active');
 }
 settingsButton.addEventListener('click', toggleSettingsAnimation);
+
 
 //restart
 const restart = () => {
@@ -63,7 +78,7 @@ const makeMove = () => {
             updateTurn();
             let check = checkWin();
             if (AIactive && check) {
-                makeAIMove();
+                setTimeout(() => {makeAIMove()}, 200);
                 }
             }
         })
