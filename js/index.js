@@ -3,12 +3,19 @@ const tiles = document.querySelectorAll('.tile');
 let currentTurn = "X"; 
 let button = document.querySelector('.button');
 let resetButton = document.querySelector('.reset');
+let settingsButton = document.querySelector('.burger');
 const board = document.querySelector('.board');
 let xWins = 0;
 let oWins = 0;
 let AIactive = true;
 let AITiles = [];
 //functions
+
+//settings menu 
+const toggleSettingsAnimation = () => {
+    settingsButton.classList.toggle('rotate');
+}
+settingsButton.addEventListener('click', toggleSettingsAnimation);
 
 //restart
 const restart = () => {
@@ -113,7 +120,7 @@ const checkWin = () => {
        gameOver(tile7);
        toggleStyling([tiles[6], tiles[7], tiles[8]], 'highlight', 200);
        toggleStyling([tiles[0], tiles[1], tiles[2], tiles[3], tiles[4], tiles[5]], 'darken');
-       return true;
+       return false;
     } else if (tile1 !== "" && tile1 === tile4 && tile4 === tile7) {
        gameOver(tile1);
        toggleStyling([tiles[0], tiles[3], tiles[6]], 'highlight', 100);
@@ -136,7 +143,7 @@ const checkWin = () => {
        return false;
     } else if (tile3 !== "" && tile3 === tile5 && tile5 === tile7) {
        gameOver(tile3);
-       toggleStyling([tiles[2], tiles[4], tiles[6]], 'highlight', 150);
+       toggleStyling([tiles[2], tiles[4], tiles[6]], 'highlight', 100);
        toggleStyling([tiles[0], tiles[1], tiles[3], tiles[5], tiles[7], tiles[8]], 'darken');
        return false;
     } else if (tile1 && tile2 && tile3 && tile4 && tile5 && tile6 && tile7 && tile8 && tile9) {

@@ -141,4 +141,33 @@ button {
     background-color: #ffffff;
 }
 
+/*settings menu*/
+
+.settings-cointainer {
+    display: flex;
+}
+
+.burger {
+    display: inline-block;
+    cursor: pointer;
+    position: fixed;
+    top: 0;
+    right: 0;
+    margin: 24px 30px;;    
+    transition: 0.4s;
+}
+
+.rotate {
+    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+}
+
+.line-1, .line-2, .line-3 {
+    width: 35px;
+    height: 5px;
+    background-color: #00adb5;
+    border-radius: 5px;;
+    margin: 6px 0px;
+}
+
 
