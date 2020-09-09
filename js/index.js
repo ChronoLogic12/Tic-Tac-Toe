@@ -21,8 +21,11 @@ let AITiles = [];
 
 //switch the team the player is on VS AI
 const changeTeam = () => {
+    restart();
+    reset();
     playerTurn = toggleTurn(playerTurn);
     playerTeamButton.children[0].innerHTML = playerTurn;
+    setTimeout (() => {if (playerTurn === "O") { makeAIMove() }}, 200);
 };
 
 playerTeamButton.addEventListener('click', changeTeam);
