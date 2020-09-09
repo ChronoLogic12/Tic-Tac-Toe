@@ -24,8 +24,7 @@ const changeTeam = () => {
     restart();
     reset();
     playerTurn = toggleTurn(playerTurn);
-    playerTeamButton.children[0].innerHTML = playerTurn;
-    setTimeout (() => {if (playerTurn === "O") { makeAIMove() }}, 200);
+    playerTeamButton.children[0].innerHTML = playerTurn;    
 };
 
 playerTeamButton.addEventListener('click', changeTeam);
@@ -62,6 +61,7 @@ const restart = () => {
     tiles.forEach(tile => {
         tile.classList.remove('inactive');
     })
+    setTimeout (() => {if (playerTurn === "O") { makeAIMove() }}, 200);
 }
 
 button.addEventListener('click', restart);
