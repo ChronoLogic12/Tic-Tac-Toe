@@ -36,6 +36,9 @@ const activateAI = () => {
     playerTeam.classList.toggle('team-menu-active');
     reset();
     restart();
+    if (!AIactive && playerTurn === "O") {
+        changeTeam();
+    };
 }
 
 AItoggle.addEventListener('click', activateAI);
